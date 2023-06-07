@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="~{fragments/header :: head('Licênça de Vôo')}"></header>
+
+<body>
+
+<nav th:replace="~{fragments/navigationBar :: navbarSeed()}"></nav>
+
+<div class="container">
+	<h2>Licênças de Vôo</h2>
+	<hr>
+	<table class="table">
+		<thead>
+			<th>ID</th>
+			<th>ID do Drone</th>
+			<th>Código de Licênça</th>
+			<th>Data de Emissão</th>
+			<th>Data de Validade</th>
+		</thead>
+		<tbody>
+			<tr th:each="licenca : ${licencas}">
+				<td th:text="${licenca.getId()}"></td>
+				<td th:text="${licenca.getIdDrone()}"></td>
+				<td th:text="${licenca.getCodigoLicencaVoo()}"></td>
+				<td th:text="${licenca.getDataEmissao()}"></td>
+				<td th:text="${licenca.getDataValidade()}"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+</body>
+</html>

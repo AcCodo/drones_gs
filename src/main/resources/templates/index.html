@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="~{fragments/header :: head('Login')}"></header>
+
+<body>
+
+<div class="container mt-5">
+	<h2 class="text-center">Login</h2> <a href="/cadastrar"><button>Cadastro</button></a><br>
+	<form method="POST" action="/login">
+		<p>Usuário: <input type="text" id="username" name="username"/></p>
+		<p>Password: <input type="text" id="password" name="password"/></p>
+		<input type="submit" value="Entrar"/>
+	</form>
+</div>
+
+</body>
+</html>

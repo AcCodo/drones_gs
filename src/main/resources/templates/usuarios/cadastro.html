@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="~{fragments/header :: head('Cadastro')}"></header>
+
+<body>
+
+<div class="container mt-5">
+	<h2 class="text-center">Cadastrar Usuário</h2>
+	<form method="post" action="/cadastrar">
+		<p>Usuário: <input type="text" id="username" name="username"/></p>
+		<p>Senha: <input type="password" id="password" name="password"/></p>
+		<p>Role: <select name="role" id="role">
+			<option value="DRONE-ADMIN">DRONE-ADMIN</option>
+			<option value="DRONE-SEED">DRONE-SEED</option>
+			<option value="TELEMETRIA-READER">TELEMETRIA-READER</option>
+		</select></p>
+		<input type="submit" value="Salvar" />
+	</form>
+</div>
+
+
+</body>
+</html>

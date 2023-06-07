@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="~{fragments/header :: head('Drones')}"></header>
+
+<body>
+
+<nav th:replace="~{fragments/navigationBar :: navbarAdmin()}"></nav>
+
+<div class="container">
+	<h2>Drones</h2>
+	<a href="/admin/drones/criar"><button>Criar novo Drone</button></a>
+	<hr>
+	<table class="table">
+		<thead>
+			<th>ID</th>
+			<th>Modelo</th>
+			<th>Data da Compra</th>
+			<th>Capacidade da Bateria</th>
+			<th>Número de Série</th>
+			<th>Capacidade de Carga</th>
+			<th>ID de Licença</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</thead>
+		<tbody>
+			<tr th:each="drone : ${drones}">
+				<td th:text="${drone.getId()}"></td>
+				<td th:text="${drone.getModelo()}"></td>
+				<td th:text="${drone.getDataCompra()}"></td>
+				<td th:text="${drone.getCapacidadeBateria()}"></td>
+				<td th:text="${drone.getNumeroSerie()}"></td>
+				<td th:text="${drone.getCapacidadeCarga()}"></td>
+				<td th:text="${drone.getLicencaVoo()}"></td>
+				<td><a th:href="@{/admin/drones/telemetria/{id} (id = ${drone.getId()})}">Telemetrias</a></td>
+				<td><a th:href="@{/admin/drones/licenca/{id} (id = ${drone.getId()})}">Licênça</a></td>
+				<td><a th:href="@{/admin/historico/{id} (id = ${drone.getId()})}">Adicionar Vôo</a></td>
+				<td><a th:href="@{/admin/drones/deletar/{id} (id = ${drone.getId()})}">deletar</a></td>
+				<td><a th:href="@{/admin/drones/editar/{id} (id = ${drone.getId()})}">editar</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+</body>
+</html>

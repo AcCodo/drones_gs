@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="~{fragments/header :: head('Licênça')}"></header>
+
+<body>
+
+<nav th:replace="~{fragments/navigationBar :: navbarAdmin()}"></nav>
+
+<div class="container mt-5">
+	<h2 class="text-center">Cadastrar Licênça</h2>
+	<form method="post" action="/admin/licencas/criar">
+		<input type="hidden" id="idDrone" name="idDrone" th:value="${droneId}"/>
+		<p>Drone Licenciado: <input type="text" id="droneId" name="droneId" th:value="${droneId}" disabled/></p>
+		<p>Código de Licença: <input type="text" id="codigoLicencaVoo" name="codigoLicencaVoo"/></p>
+		<p>Data Emissão: <input type="date" id="dataEmissao" name="dataEmissao"/></p>
+		<p>Data Validade: <input type="date" id="dataValidade" name="dataValidade"/></p>
+		<input type="submit" value="Salvar" />
+	</form>
+</div>
+
+</body>
+</html>

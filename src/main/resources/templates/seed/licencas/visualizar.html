@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="~{fragments/header :: head('Licênça')}"></header>
+
+<body>
+
+<nav th:replace="~{fragments/navigationBar :: navbarSeed()}"></nav>
+
+<div class="container mt-5">
+	<h2 class="text-center">Licênça</h2>
+	<form th:object=${licenca}>
+		<input type="hidden" name="${_csrf.parameterName}"
+			value="${_csrf.token != null ? _csrf.token : ''}"/>
+		<p>Drone Licenciado: <input type="text" id="droneId" name="droneId" th:value="${licenca.idDrone}" disabled/></p>
+		<p>Código de Licença: <input type="text" id="codigoLicencaVoo" name="codigoLicencaVoo" th:value="${licenca.codigoLicencaVoo}" disabled/></p>
+		<p>Data Emissão: <input type="date" id="dataEmissao" name="dataEmissao" th:value="${licenca.dataEmissao}" disabled/></p>
+		<p>Data Validade: <input type="date" id="dataValidade" name="dataValidade" th:value="${licenca.dataValidade}" disabled/></p>
+	</form>
+</div>
+
+</body>
+</html>

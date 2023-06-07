@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="~{fragments/header :: head('Licênça')}"></header>
+
+<body>
+
+<nav th:replace="~{fragments/navigationBar :: navbarAdmin()}"></nav>
+
+<div class="container mt-5">
+	<h2 class="text-center">Cadastrar Vôo</h2>
+	<form method="post" action="/admin/historico/criar">
+		<input type="hidden" id="idDrone" name="idDrone" th:value="${droneId}"/>
+		<p>Drone: <input type="text" id="droneId" name="droneId" th:value="${droneId}" disabled/></p>
+		<p>Latitude Início do Vôo: <input type="number" id="latitudeInicioVoo" name="latitudeInicioVoo"/></p>
+		<p>Longitude Início do Vôo: <input type="number" id="longitudeInicioVoo" name="longitudeInicioVoo"/></p>
+		<p>Latitude Fim do Vôo: <input type="number" id="latitudeFimVoo" name="latitudeFimVoo"/></p>
+		<p>Longitude Fim do Vôo: <input type="number" id="longitudeFimVoo" name="longitudeFimVoo"/></p>
+		<p>Altitude Média: <input type="number" id="altitudeMedia" name="altitudeMedia"/></p>
+		<p>Velocidade Média: <input type="number" id="velocidadeMedia" name="velocidadeMedia"/></p>
+		<p>Data Decolagem: <input type="date" id="dataDecolagem" name="dataDecolagem"/></p>
+		<p>Data Aterrissagem: <input type="date" id="dataAterrissagem" name="dataAterrissagem"/></p>
+		<input type="submit" value="Salvar" />
+	</form>
+</div>
+
+</body>
+</html>

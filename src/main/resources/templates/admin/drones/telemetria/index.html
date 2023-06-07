@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="~{fragments/header :: head('Telemetria')}"></header>
+
+<body>
+
+<nav th:replace="~{fragments/navigationBar :: navbarAdmin()}"></nav>
+
+<div class="container">
+	<h2 th:text="${droneId}"></h2>
+	<a th:href="@{/admin/drones/telemetria/criar/{id} (id = ${droneId})}"><button>Criar nova telemetria</button></a>
+	<hr>
+	<table class="table">
+		<thead>
+			<th>ID</th>
+			<th>Latitude</th>
+			<th>Longitude</th>
+			<th>Velocidade</th>
+			<th>Direção</th>
+			<th>Data e Hora</th>
+			<th></th>
+			<th></th>
+		</thead>
+		<tbody>
+			<tr th:each="telemetria : ${telemetrias}">
+				<td th:text="${telemetria.getId()}"></td>
+				<td th:text="${telemetria.getLatitude()}"></td>
+				<td th:text="${telemetria.getLongitude()}"></td>
+				<td th:text="${telemetria.getVelocidade()}"></td>
+				<td th:text="${telemetria.getDirecao()}"></td>
+				<td th:text="${telemetria.getDataHora()}"></td>
+				<td><a th:href="@{/admin/drones/telemetria/{path} (path = ${droneId} + @{/deletar/} + ${telemetria.getId()})}">deletar</a></td>
+				<td><a th:href="@{/admin/drones/telemetria/{path} (path = ${droneId} + @{/editar/} + ${telemetria.getId()})}">editar</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+</body>
+</html>

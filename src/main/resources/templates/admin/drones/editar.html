@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="~{fragments/header :: head('Drones')}"></header>
+
+<body>
+
+<nav th:replace="~{fragments/navigationBar :: navbarAdmin()}"></nav>
+
+<div class="container mt-5">
+	<h2 class="text-center">Editar Drone</h2>
+	<form method="post" th:action="${drone.id}" th:object=${drone}>
+		<input type="hidden" name="${_csrf.parameterName}"
+			value="${_csrf.token != null ? _csrf.token : ''}"/>
+		<p>ID: <input type="text" id="id" name="id" disabled th:value="${drone.id}"/></p>
+		<p>Modelo: <input type="text" id="modelo" name="modelo" th:value="${drone.modelo}"/></p>
+		<p>Data da Compra: <input type="date" id="dataCompra" name="dataCompra" th:value="${drone.dataCompra}"/></p>
+		<p>Número de Série: <input type="text" id="numeroSerie" name="numeroSerie" th:value="${drone.numeroSerie}"/></p>
+		<p>Capacidade de Carga: <input type="number" id="capacidadeCarga" name="capacidadeCarga" th:value="${drone.capacidadeCarga}"/></p>
+		<p>Capacidade de Bateria: <input type="number" id="capacidadeBateria" name="capacidadeBateria" th:value="${drone.capacidadeBateria}"/></p>
+		<input type="submit" value="Salvar" />
+	</form>
+</div>
+
+</body>
+</html>

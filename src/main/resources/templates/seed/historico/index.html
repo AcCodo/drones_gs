@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="~{fragments/header :: head('Histórico')}"></header>
+
+<body>
+
+<nav th:replace="~{fragments/navigationBar :: navbarSeed()}"></nav>
+
+<div class="container">
+	<h2>Histórico de Vôo</h2>
+	<hr>
+	<table class="table">
+		<thead>
+			<th>ID</th>
+			<th>ID do Drone</th>
+			<th>Latitude Início do Vôo</th>
+			<th>Longitude Início do Vôo</th>
+			<th>Latitude Fim do Vôo</th>
+			<th>Longitude Fim do Vôo</th>
+			<th>Altitude Média</th>
+			<th>Velocidade Média</th>
+			<th>Data Decolagem</th>
+			<th>Data Aterrissagem</th>
+		</thead>
+		<tbody>
+			<tr th:each="historico : ${historicos}">
+				<td th:text="${historico.getId()}"></td>
+				<td th:text="${historico.getIdDrone()}"></td>
+				<td th:text="${historico.getLatitudeInicioVoo()}"></td>
+				<td th:text="${historico.getLongitudeInicioVoo()}"></td>
+				<td th:text="${historico.getLatitudeFimVoo()}"></td>
+				<td th:text="${historico.getLongitudeFimVoo()}"></td>
+				<td th:text="${historico.getAltitudeMedia()}"></td>
+				<td th:text="${historico.getVelocidadeMedia()}"></td>
+				<td th:text="${historico.getDataDecolagem()}"></td>
+				<td th:text="${historico.getDataAterrissagem()}"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+</body>
+</html>

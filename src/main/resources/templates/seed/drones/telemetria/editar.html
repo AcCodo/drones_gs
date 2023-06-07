@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="~{fragments/header :: head('Telemetria')}"></header>
+
+<body>
+
+<nav th:replace="~{fragments/navigationBar :: navbarSeed()}"></nav>
+
+<div class="container mt-5">
+	<h2 class="text-center">Editar Telemetria</h2>
+	<form method="post" th:action="@{/seed/drones/telemetria/editar/}+${telemetria.id}" th:object=${telemetria}>
+		<input type="hidden" name="${_csrf.parameterName}"
+			value="${_csrf.token != null ? _csrf.token : ''}"/>
+		<p>Drone: <input type="text" id="droneId" name="droneId" th:value="${telemetria.idDrone}" disabled/></p>
+		<p>Longitude: <input type="number" id="longitude" name="longitude" th:value="${telemetria.longitude}" disabled/></p>
+		<p>Latitude: <input type="number" id="latitude" name="latitude" th:value="${telemetria.latitude}" disabled/></p>
+		<p>Velocidade: <input type="number" id="velocidade" name="velocidade" th:value="${telemetria.velocidade}"/></p>
+		<p>Direção: <input type="number" id="direcao" name="direcao" th:value="${telemetria.direcao}"/></p>
+		<p>Data e Hora: <input type="datetime-local" id="dataHora" name="dataHora" th:value="${telemetria.dataHora}"/></p>
+		<input type="submit" value="Salvar" />
+	</form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="~{fragments/header :: head('Telemetria')}"></header>
+
+<body>
+
+<nav th:replace="~{fragments/navigationBar :: navbarAdmin()}"></nav>
+
+<div class="container mt-5">
+	<h2 class="text-center">Cadastrar Telemetria</h2>
+	<form method="post" action="/admin/drones/telemetria/criar">
+		<input type="hidden" id="idDrone" name="idDrone" th:value="${droneId}"/>
+		<p>Drone: <input type="text" id="droneId" name="droneId" th:value="${droneId}" disabled/></p>
+		<p>Longitude: <input type="number" id="longitude" name="longitude"/></p>
+		<p>Latitude: <input type="number" id="latitude" name="latitude"/></p>
+		<p>Velocidade: <input type="number" id="velocidade" name="velocidade"/></p>
+		<p>Direção: <input type="number" id="direcao" name="direcao"/></p>
+		<p>Data e Hora: <input type="datetime-local" id="dataHora" name="dataHora"/></p>
+		<input type="submit" value="Salvar" />
+	</form>
+</div>
+
+</body>
+</html>

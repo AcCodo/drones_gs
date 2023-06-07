@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="~{fragments/header :: head('Telemetria')}"></header>
+
+<body>
+
+<nav th:replace="~{fragments/navigationBar :: navbarReader()}"></nav>
+
+<div class="container">
+	<h2 th:text="${droneId}"></h2>
+	<hr>
+	<table class="table">
+		<thead>
+			<th>ID</th>
+			<th>Latitude</th>
+			<th>Longitude</th>
+			<th>Velocidade</th>
+			<th>Direção</th>
+			<th>Data e Hora</th>
+		</thead>
+		<tbody>
+			<tr th:each="telemetria : ${telemetrias}">
+				<td th:text="${telemetria.getId()}"></td>
+				<td th:text="${telemetria.getLatitude()}"></td>
+				<td th:text="${telemetria.getLongitude()}"></td>
+				<td th:text="${telemetria.getVelocidade()}"></td>
+				<td th:text="${telemetria.getDirecao()}"></td>
+				<td th:text="${telemetria.getDataHora()}"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+</body>
+</html>
